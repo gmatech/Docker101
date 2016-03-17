@@ -1,0 +1,17 @@
+FROM linuxcoreserver 
+
+ENV DNX_VERSION 1.0.0-rc1-update1
+ENV DNX_USER_HOME /opt/DNX_BRANCH
+#Currently the CLR packages don't have runtime ids to handle debian:jessie but
+#we are making sure that the dependencies are the right versions and are opting for
+#the smaller base image. So we use this variable to overwrite the default detection.
+ENV DNX_RUNTIME_ID ubuntu.14.04-x64
+
+RUN curl -sSL https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.sh | DNX_USER_HOME=$DNX_USER_HOME DNX_BRANCH=v$DNX_VERSION sh
+RUN bash -c "source $DNX_USER_HOME/dnvm/dnvm.sh \
+	&& dnvm install $DNX_VERSION -alias default -r coreclr \
+	&& dnvm alias default | xargs -i ln -s $DNX_USER_HOME/runtimes/{} $DNX_USER_HOME/runtimes/default"
+
+RUN printf "deb http://ftp.us.debian.org/debian jessie main\n" >> /etc/apt/sources.list
+
+RUN apt-get -qq update && apt-get -qq install vim && rm -rf /var/lib/apt/lists/*

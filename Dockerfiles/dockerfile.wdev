@@ -1,0 +1,9 @@
+FROM windowsservercore
+
+RUN powershell -NoProfile -ExecutionPolicy unrestricted -Command "&{$Branch='dev';iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.ps1'))}"
+
+WORKDIR /windows/temp/dnvminstall
+RUN dnvm setup
+RUN dnvm install latest -r coreclr
+
+CMD cmd

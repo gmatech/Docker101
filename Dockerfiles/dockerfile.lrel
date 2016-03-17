@@ -1,0 +1,7 @@
+FROM linuxcoreserver
+
+COPY app /app
+WORKDIR /app/approot
+
+ENTRYPOINT ["./web"]
+#CMD ./web
