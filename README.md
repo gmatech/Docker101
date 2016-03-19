@@ -4,6 +4,11 @@
 
 Getting started: https://msdn.microsoft.com/en-us/virtualization/windowscontainers/quick_start/manage_docker
 
+# Docker with Linux on Azure
+
+Getting started: https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-docker-vm-extension/
+Docker Machine: https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-docker-machine/
+
 ***
 ## ASP.NET Core 1.0 on Linux
 	1. Install nodejs (can use version managers nodist on Win and nvm on Mac)
@@ -40,13 +45,13 @@ Getting started: https://msdn.microsoft.com/en-us/virtualization/windowscontaine
         dnu restore
         
 	11. Publish app (You will get errors if full path to publish folder is too long)
-        dnu publish --no-source --out .\release\app --runtime dnx-coreclr-linux-x64.1.0.0-rc1-update1 --configuration release
+        dnu publish --no-source --out ./release/app --runtime dnx-coreclr-linux-x64.1.0.0-rc1-update1 --configuration release
         
-	12. Copy Docker.release file to .\release
+	12. Copy Docker.release file to ./release
     
     13. Build base image first
     
-	14. Build Docker image from .\release
+	14. Build Docker image from ./release
         docker build –t app1 .
         
 	15. Run the app
