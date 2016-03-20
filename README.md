@@ -1,56 +1,69 @@
 # Docker 101
 
-## ASP.NET Core 1.0 on Linux
-	1. Install nodejs (can use version managers nodist on Win and nvm on Mac)
+## General Development Tool Setup
+
+	1. Install nodejs
         https://nodejs.org/en/
         
-	2. Install ASP.NET Core 1.0 (ASP.NET 5)
-        https://get.asp.net/
-        
-	3. Install Linux runtime
-        dnvm install latest –r coreclr –OS linux
-        
-	4. Install Yeoman
+	2. Install Yeoman
         npm install -g yo
         
-	5. Install Bower
+	3. Install Bower
         npm install -g bower
     
-	6. Install Gulp
+	4. Install Gulp
         npm install -g gulp
         
-	7. Install Yeoman generator for ASP.NET
+	5. Install Yeoman generator for ASP.NET
         npm install -g generator-aspnet
         
-	8. Scaffold app
-        yo aspnet
+	6. Install ASP.NET Core 1.0 (ASP.NET 5)
+        https://get.asp.net/
         
-	9. Add the file hosting.json to scafolded folder with the contents:
+    7. Install VSCode
+        
+
+## ASP.NET Core 1.0 on Linux
+        
+	1. Install Linux runtime
+        dnvm install latest –r coreclr –OS linux
+        
+    2. Build Docker image linuxcoreserver using dockerfile.lcore
+        
+## Create container with an ASP.NET 1.0 Core Web App
+        
+	1. Scaffold Web app
+        yo aspnet (folder with name of app will be created)
+        
+    2. Restore Nuget Packages (in app folder from step 1)
+        dnu restore
+        
+    3. Cause web server (kestrel) to run on port 8080
+        Create file "hosting.json" with following contents (in app folder from step 1):
         {
             "server.urls": "http://0.0.0.0:8080"
         }
-        This causes the web server (kestrel) to listen on port 80
         
-	10. Install Nuget packages
-        dnu restore
-        
-	11. Publish app (You will get errors if full path to publish folder is too long)
+	4. Publish App (in app folder from step 1)
+    
         dnu publish --no-source --out ./release/app --runtime dnx-coreclr-linux-x64.1.0.0-rc1-update1 --configuration release
         
-	12. Copy Docker.release file to ./release
-    
-    13. Build base image first
-    
-	14. Build Docker image from ./release
-        docker build –t app1 .
+        You will get errors if full path to publish folder is too long
         
-	15. Run the app
-        docker run –d –-name app1 –p 8080:8080 app1
+	5. Copy Docker.lrel (from github dockerfiles) to [app folder]/release
+    
+	6. Build Docker image from [app folder]/release
+    
+        docker build –t [image name:tag] .
         
-    16. Get VM IP address
+	7. Run the App
+    
+        docker run –d –-name [some arbitrary name] –p 8080:8080 [image name:tag]
+        
+    8. Get VM IP address
         docker-machine ip [VM name]
         
-	16. View ASP.NET Core sample app app in browser
+	9. View ASP.NET Core sample app app in browser
         Browse to http://docker-machine ip:8080/
 
 ***
@@ -62,6 +75,10 @@ docker-machine create -d azure --azure-subscription-id="[from 3 above]" --azure-
 ***
 
 ## Resources
+
+### General
+
+[Excellent documention on Docker site](http://www.docker.com/)
 
 ### Docker on Windows
 
