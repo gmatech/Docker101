@@ -1,15 +1,5 @@
 # Docker 101
 
-## Docker on Windows
-
-Getting started: https://msdn.microsoft.com/en-us/virtualization/windowscontainers/quick_start/manage_docker
-
-# Docker with Linux on Azure
-
-Getting started: https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-docker-vm-extension/
-Docker Machine: https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-docker-machine/
-
-***
 ## ASP.NET Core 1.0 on Linux
 	1. Install nodejs (can use version managers nodist on Win and nvm on Mac)
         https://nodejs.org/en/
@@ -64,5 +54,25 @@ Docker Machine: https://azure.microsoft.com/en-us/documentation/articles/virtual
         Browse to http://docker-machine ip:8080/
 
 ***
+
+## Docker on Azure
+
+docker-machine create -d azure --azure-subscription-id="[from 3 above]" --azure-subscription-cert="yourcert.pem [from 3 above]" [machine-name]
+
+***
+
+## Resources
+
+### Docker on Windows
+
+[Windows Containers Quick Start - Docker](https://msdn.microsoft.com/en-us/virtualization/windowscontainers/quick_start/manage_docker)
+
+### Docker with Linux on Azure
+
+1. Getting started: https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-docker-vm-extension/
+2. Install the Azure CLI: https://azure.microsoft.com/en-us/documentation/articles/xplat-cli-install/
+3. Docker Machine: https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-docker-machine/
+
+
 
 
