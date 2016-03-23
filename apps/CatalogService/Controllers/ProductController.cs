@@ -34,7 +34,8 @@ namespace CatalogService.Controllers
             
             List<Product> products;
             
-            using (var r = new StreamReader("file.json"))
+            using (var fs = new FileStream("/data/Products.json", FileMode.Open))
+            using (var r = new StreamReader(fs))
             {
                 string json = r.ReadToEnd();
                 products = JsonConvert.DeserializeObject<List<Product>>(json);
