@@ -17,7 +17,7 @@
     "Microsoft.Extensions.Logging.Console": "1.0.0-rc1-final",
     "Microsoft.Extensions.Logging.Debug" : "1.0.0-rc1-final",
     "Newtonsoft.Json": "8.0.3",
-    "System.Data.SQLite": "1.0.99"
+    "sqlite-net": "1.0.8"
   },
 
   "commands": {

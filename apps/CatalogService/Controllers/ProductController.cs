@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using Microsoft.AspNet.Mvc;
 using Newtonsoft.Json;
 using System.IO;
+using CatalogService.Data;
+using CatalogService.Data.Entities;
 
 namespace CatalogService.Controllers
 {
@@ -43,12 +45,5 @@ namespace CatalogService.Controllers
             
             return products;
         }
-    }
-    
-    public class Product 
-    {
-        public int Id {get;set;}
-        public string Name {get;set;}
-        public decimal Price {get;set;}
     }
 }
