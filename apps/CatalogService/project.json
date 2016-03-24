@@ -8,6 +8,7 @@
   },
 
   "dependencies": {
+    "System.IO.FileSystem": "4.0.0",
     "Microsoft.AspNet.IISPlatformHandler": "1.0.0-rc1-final",
     "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
     "Microsoft.AspNet.Server.Kestrel": "1.0.0-rc1-final",
@@ -16,8 +17,7 @@
     "Microsoft.Extensions.Logging": "1.0.0-rc1-final",
     "Microsoft.Extensions.Logging.Console": "1.0.0-rc1-final",
     "Microsoft.Extensions.Logging.Debug" : "1.0.0-rc1-final",
-    "Newtonsoft.Json": "8.0.3",
-    "sqlite-net": "1.0.8"
+    "Newtonsoft.Json": "8.0.3"
   },
 
   "commands": {
