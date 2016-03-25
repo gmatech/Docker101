@@ -8,8 +8,11 @@ namespace WebApp.Proxies
 {
     public class CatalogServiceProxy
     {
+        private Config Config { get; }
+        
         public CatalogServiceProxy(Config config)
         {
+            Config = config;
         }
     }
 }
