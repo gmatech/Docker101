@@ -57,7 +57,7 @@
     3. Cause web server (kestrel) to run on port 8080
         Create file "hosting.json" with following contents (in app folder from step 1):
         {
-            "server.urls": "http://0.0.0.0:8080"
+            "server.urls": "http://0.0.0.0:80"
         }
         
 	4. Publish App (in app folder from step 1)
@@ -74,7 +74,7 @@
         
 	7. Run the App
     
-        docker run –d –-name [some arbitrary name] –p 8080:8080 [image name:tag]
+        docker run –d –-name [some arbitrary name] –p 8080:80 [image name:tag]
         
     8. Get VM IP address
     

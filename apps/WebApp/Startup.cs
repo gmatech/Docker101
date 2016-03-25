@@ -7,8 +7,9 @@ using Microsoft.AspNet.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using WebApp.Models;
 
-namespace ecapp
+namespace WebApp
 {
     public class Startup
     {
@@ -26,6 +27,10 @@ namespace ecapp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddOptions();
+            
+            services.Configure<Config>(Configuration);
+    
             // Add framework services.
             services.AddMvc();
         }

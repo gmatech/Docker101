@@ -36,6 +36,10 @@
   ],
   "publishExclude": [
     "**.user",
-    "**.vspscc"
+    "**.vspscc",
+    "Dockerfile",
+    "dockerfile.*",
+    "release",
+    "Products.*",
   ]
 }
