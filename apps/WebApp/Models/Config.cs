@@ -7,6 +7,11 @@ namespace WebApp.Models
 {
     public class Config
     {
+        public Services Services { get; set; }
+    }
+    
+    public class Services
+    {
         public string CatalogService { get; set; }
     }
 }
