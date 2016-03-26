@@ -86,6 +86,22 @@
 
 ***
 
+## Commands
+
+***
+
+### .Net Core
+
+dnu publish --no-source --out ./release/app --runtime dnx-coreclr-linux-x64.1.0.0-rc1-update1 --configuration release
+
+### Docker
+
+docker run -it --entrypoint bash -p 8081:80 --rm -v /Users/gerald/docker101/data:/data/app —-name CatalogService gmatech/docker101:CatalogService-v1
+
+docker run —-name CatalogService -d -p 8081:80 -v /Users/gerald/docker101/data:/data/app gmatech/docker101:CatalogService-v1
+
+docker run —-name WebApp -d -p 8080:80 gmatech/docker101:WebApp-v1
+
 ## Docker on Azure
 
 docker-machine create -d azure --azure-subscription-id="[from 3 above]" --azure-subscription-cert="yourcert.pem [from 3 above]" [machine-name]
