@@ -16,4 +16,10 @@
         "Name": "Product 3",
         "Price": 3.95,
     },
+    
+    {
+        "Id": 4,
+        "Name": "Product 4",
+        "Price": 4.95,
+    },
 ]
