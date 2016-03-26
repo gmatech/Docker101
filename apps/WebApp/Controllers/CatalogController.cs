@@ -8,8 +8,6 @@ using Microsoft.Extensions.OptionsModel;
 using WebApp.Models;
 using WebApp.Proxies;
 
-// For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace WebApp.Controllers
 {
     public class CatalogController : Controller
@@ -23,6 +21,7 @@ namespace WebApp.Controllers
             _catalogServiceProxy = new CatalogServiceProxy(_config);
         }
         
+        [Route("Catalog/Products")]
         public async Task<IActionResult> Index()
         {
             //var products = GetAllProducts();
