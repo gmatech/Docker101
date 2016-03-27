@@ -1,0 +1,16 @@
+version: '2'
+services:
+  WebApp:
+    image: gmatech/docker101:Webapp-v1
+    depends_on:
+      - CatalogService
+    ports:
+      - "8080:80"
+  CatalogService
+    image: gmatech/docker101:CatalogService-v1
+    ports:
+      - "8081:80"
+    volumes:
+      - "/data"
+    environment:
+      -

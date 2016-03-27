@@ -1,0 +1,23 @@
+version: '2'
+
+services:
+
+  WebApp:
+    image: gmatech/docker101:WebApp-v1
+    ports:
+      - "8080:80"
+    links:
+      - CatalogService:CatalogService
+    environment:
+      - ASPNET_ENV=Staging
+    restart: always
+    
+  CatalogService:
+    image: gmatech/docker101:CatalogService-v1
+    ports:
+      - "8081:80"
+    volumes:
+      - "~/docker101/data:/data/app"
+    environment:
+      - ASPNET_ENV=Staging
+    restart: always
