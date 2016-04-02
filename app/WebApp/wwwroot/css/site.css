@@ -8,6 +8,7 @@ body {
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+    padding-top: 50px;
 }
 
 /* Set widths on the form inputs since otherwise they're 100% wide */
@@ -21,4 +22,21 @@ textarea {
 .carousel-caption p {
     font-size: 20px;
     line-height: 1.4;
+}
+
+table {
+    width: 50%;
+}
+
+th {
+    height: 25px;
+}
+
+table, th, td {
+   border: 1px solid black;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
 }

@@ -13,5 +13,6 @@ namespace WebApp.Models
     public class Services
     {
         public string CatalogService { get; set; }
+        public string ShippingService { get; set; }
     }
 }

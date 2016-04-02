@@ -1,0 +1,22 @@
+@using System.Collections.Generic;
+
+@model List<WebApp.Models.ShippingRate>
+
+<h2>Shipping Rates</h2>
+
+<table>
+    
+<thead>
+    <th>State</th>
+    <th>Rate</th>
+</thead>
+    
+@foreach(var shippingRate in Model)
+{
+    <tr>
+        <td>@shippingRate.State</td>
+        <td>@shippingRate.Rate</td>
+    </tr>
+}
+
+</table>

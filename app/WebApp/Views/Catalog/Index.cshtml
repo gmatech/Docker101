@@ -2,7 +2,23 @@
 
 @model List<WebApp.Models.Product>
 
+<h2>Catalog Products</h2>
+
+<table>
+    
+<thead>
+    <th>ID</th>
+    <th>Product</th>
+    <th>Price</th>
+</thead>
+
 @foreach(var product in Model)
 {
-    <h3>@product.Id</h3>
+    <tr>
+        <td>@product.Id</td>
+        <td>@product.Name</td>
+        <td>@product.Price</td>
+    </tr>
 }
+
+</table>
