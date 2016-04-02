@@ -101,8 +101,10 @@ docker run -it --entrypoint bash -p 8081:80 --rm -v /Users/gerald/docker101/data
 docker run —-name CatalogService -d -p 8081:80 -v /Users/gerald/docker101/data:/data/app gmatech/docker101:CatalogService-v1
 
 docker run —-name WebApp -d -p 8080:80 gmatech/docker101:WebApp-v1
+
 docker run —-name WebApp -e "ASPNET_ENV=Staging" -d -p 8080:80 gmatech/docker101:WebApp-v1
-docker run —-name WebApp --link CatalogService -d -p 8080:80 gmatech/docker101:WebApp-v1
+
+docker run —-name WebApp -e "ASPNET_ENV=Staging" --link CatalogService -d -p 8080:80 gmatech/docker101:WebApp-v1
 
 ***
 

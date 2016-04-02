@@ -1,0 +1,13 @@
+FROM nodecoreserver
+
+COPY config.js /service/
+COPY package.json /service/
+COPY index.js /service/
+COPY manifest.js /service/
+COPY node_modules /service/node_modules/
+COPY server /service/server/
+COPY server.js /service/
+
+WORKDIR /service
+
+ENTRYPOINT ["node", "server.js"]
