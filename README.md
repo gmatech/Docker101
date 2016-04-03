@@ -94,17 +94,19 @@
 
 dnu publish --no-source --out ./release/app --runtime dnx-coreclr-linux-x64.1.0.0-rc1-update1 --configuration release
 
-### Docker
+### Docker Build
+
+docker build -t reponame:tag -f dockerfile.lrel .
+
+### Docker Run
 
 docker run -it --entrypoint bash -p 8081:80 --rm -v /Users/gerald/docker101/data:/data/app —-name CatalogService gmatech/docker101:CatalogService-v1
 
-docker run —-name CatalogService -d -p 8081:80 -v /Users/gerald/docker101/data:/data/app gmatech/docker101:CatalogService-v1
+docker run --name CatalogService -d -p 8081:80 -v /Users/gerald/docker101/data:/data/app gmatech/docker101:CatalogService-v1
 
-docker run —-name WebApp -d -p 8080:80 gmatech/docker101:WebApp-v1
+docker run --name ShippingService -d -p 8082:80 -v /Users/gerald/docker101/data:/data/app gmatech/docker101:ShippingService-v1
 
-docker run —-name WebApp -e "ASPNET_ENV=Staging" -d -p 8080:80 gmatech/docker101:WebApp-v1
-
-docker run —-name WebApp -e "ASPNET_ENV=Staging" --link CatalogService -d -p 8080:80 gmatech/docker101:WebApp-v1
+docker run --name WebApp -e "ASPNET_ENV=Staging" --link CatalogService --link ShippingService -d -p 8080:80 gmatech/docker101:WebApp-v1
 
 ***
 
