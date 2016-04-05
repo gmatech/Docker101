@@ -66,15 +66,15 @@
         
         You will get errors if full path to publish folder is too long
         
-	5. Copy Docker.lrel (from github dockerfiles) to [app folder]/release
+	5. Copy Docker.lrel (from github repo folder dockerfiles) to [project folder]/release
     
-	6. Build Docker image from [app folder]/release
+	6. Build Docker image from [project folder]/release
     
-        docker build –t [image name:tag] .
+        docker build –t name[:tag] .
         
-	7. Run the App
+	7. Run the Web App
     
-        docker run –d –-name [some arbitrary name] –p 8080:80 [image name:tag]
+        docker run –d --name [some arbitrary name] –p 8080:80 name[:tag]
         
     8. Get VM IP address
     
@@ -94,13 +94,17 @@
 
 dnu publish --no-source --out ./release/app --runtime dnx-coreclr-linux-x64.1.0.0-rc1-update1 --configuration release
 
-### Docker Build
+### ASP.NET Core Docker Build [in projects release folder created by dnu publish]
 
-docker build -t reponame:tag -f dockerfile.lrel .
+docker build -t CatalogService[:tag] -f dockerfile.lrel .
+
+docker build -t WebApp[:tag] -f dockerfile.lrel .
+
+### Node Docker Build [in project folder]
+
+docker build -t ShippingService[:tag] -f dockerfile.nrel .
 
 ### Docker Run
-
-docker run -it --entrypoint bash -p 8081:80 --rm -v /Users/gerald/docker101/data:/data/app —-name CatalogService gmatech/docker101:CatalogService-v1
 
 docker run --name CatalogService -d -p 8081:80 -v /Users/gerald/docker101/data:/data/app gmatech/docker101:CatalogService-v1
 
@@ -121,17 +125,15 @@ docker-machine create -d azure --azure-subscription-id="[from 3 above]" --azure-
 ### General
 
 1. [Excellent documention on Docker site](http://www.docker.com/)
-2. [Docker High Level Whiteboard (Channel 9 Presentation)](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard)
 
 ### Docker on Windows
 
-[Windows Containers Quick Start - Docker](https://msdn.microsoft.com/en-us/virtualization/windowscontainers/quick_start/manage_docker)
+1. [Windows Containers Quick Start - Docker](https://msdn.microsoft.com/en-us/virtualization/windowscontainers/quick_start/manage_docker)
 
 ### Docker with Linux on Azure
 
-1. Getting started: https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-docker-vm-extension/
-2. Install the Azure CLI: https://azure.microsoft.com/en-us/documentation/articles/xplat-cli-install/
-3. Docker Machine: https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-docker-machine/
+1. Install the Azure CLI: https://azure.microsoft.com/en-us/documentation/articles/xplat-cli-install/
+2. Docker Machine: https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-docker-machine/
 
 ### VSCode
 
