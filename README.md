@@ -108,7 +108,7 @@ docker build -t ShippingService[:tag] -f dockerfile.nrel .
 
 docker run --name CatalogService -d -p 8081:80 -v /Users/gerald/docker101/data:/data/app gmatech/docker101:CatalogService-v1
 
-docker run --name ShippingService -d -p 8082:80 -v /Users/gerald/docker101/data:/data/app gmatech/docker101:ShippingService-v1
+docker run --name ShippingService -d -p 8082:80 gmatech/docker101:ShippingService-v1
 
 docker run --name WebApp -e "ASPNET_ENV=Staging" --link CatalogService --link ShippingService -d -p 8080:80 gmatech/docker101:WebApp-v1
 
@@ -125,6 +125,8 @@ docker-machine create -d azure --azure-subscription-id="[from 3 above]" --azure-
 ### General
 
 1. [Excellent documention on Docker site](http://www.docker.com/)
+2. [List of Docker Resources](https://github.com/veggiemonk/awesome-docker)
+2. [NewStack Blog,Podcast and free ebooks](http://thenewstack.io/)
 
 ### Docker on Windows
 
