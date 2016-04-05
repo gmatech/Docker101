@@ -127,6 +127,8 @@ docker-machine create -d azure --azure-subscription-id="[from 3 above]" --azure-
 1. [Excellent documention on Docker site](http://www.docker.com/)
 2. [List of Docker Resources](https://github.com/veggiemonk/awesome-docker)
 2. [NewStack Blog,Podcast and free ebooks](http://thenewstack.io/)
+2. [Docker 3rd Birthday Slides](http://www.slideshare.net/Docker/docker-birthday-3-intro-to-docker-slides)
+2. [Docker 3rd Birthday Challenge](https://github.com/docker/docker-birthday-3)
 
 ### Docker on Windows
 
