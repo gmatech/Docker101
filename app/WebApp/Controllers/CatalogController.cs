@@ -18,14 +18,12 @@ namespace WebApp.Controllers
         public CatalogController(IOptions<Config> optionsAccessor)
         {
             _config = optionsAccessor.Value;
+            
             _catalogServiceProxy = new CatalogServiceProxy(_config);
         }
         
-        [Route("Catalog/Products")]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Products()
         {
-            //var products = GetAllProducts();
-            
             var products = await _catalogServiceProxy.GetAllProductsAsync();
             
             return View(products);
@@ -35,13 +33,5 @@ namespace WebApp.Controllers
         {
             return View(_config);
         }
-        
-        // public List<Product> GetAllProducts()
-        // {
-        //     return new List<Product> {
-        //         new Product {Id = 1, Name="Product 1", Price=2.95m},
-        //         new Product {Id = 2, Name="Product 2", Price=4.95m}
-        //     };
-        // }
     }
 }

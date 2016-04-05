@@ -21,8 +21,7 @@ namespace WebApp.Controllers
             _shippingServiceProxy = new ShippingServiceProxy(_config);
         }
         
-        [Route("Shipping/Rates")]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Rates()
         {
             var rates = await _shippingServiceProxy.GetAllShippingRatesAsync();
             
